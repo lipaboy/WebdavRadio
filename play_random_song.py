@@ -82,7 +82,7 @@ if __name__ == "__main__":
 
         if not through_proxy:
             print('mpv')
-            subprocess.run(f'mpv {LOCAL_SONG_PATH} &> /dev/null')
+            subprocess.run(f'mpv {LOCAL_SONG_PATH} &> /dev/null', shell=True)
             print('end')
             # os.remove(LOCAL_SONG_PATH)
         else:
@@ -91,6 +91,7 @@ if __name__ == "__main__":
     except Exception as e:
         print(e)
         
+
 
 
 
