@@ -3,6 +3,7 @@ import os
 import time
 import sys
 import signal
+import subprocess
 
 from pydub import AudioSegment
 from pydub import playback
@@ -80,8 +81,12 @@ if __name__ == "__main__":
         song_audio_segment : AudioSegment = AudioSegment.from_mp3(LOCAL_SONG_PATH)
 
         os.remove(LOCAL_SONG_PATH)
-        
-        play(song_audio_segment)
+
+        if not through_proxy:
+            subprocess.run(f'mpv ./music/1.mp3 &> /dev/null', shell=True, check=True, text=True)
+        else:
+            play(song_audio_segment)
     except Exception as e:
         print(e)
         
+
