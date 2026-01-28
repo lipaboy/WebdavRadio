@@ -80,13 +80,14 @@ if __name__ == "__main__":
 
         song_audio_segment : AudioSegment = AudioSegment.from_mp3(LOCAL_SONG_PATH)
 
-        os.remove(LOCAL_SONG_PATH)
-
         if not through_proxy:
             subprocess.run(f'mpv ./music/1.mp3 &> /dev/null', shell=True, check=True, text=True)
+            os.remove(LOCAL_SONG_PATH)
         else:
+            os.remove(LOCAL_SONG_PATH)
             play(song_audio_segment)
     except Exception as e:
         print(e)
         
+
 
