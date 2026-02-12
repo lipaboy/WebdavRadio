@@ -43,7 +43,7 @@ if __name__ == "__main__":
         if not through_proxy:
             FNULL = open(os.devnull, 'w')
             # subprocess.run(f'mpv {LOCAL_SONG_PATH} &> /dev/null', stdout=FNULL, shell=True)
-            subprocess.call(['mpv', '{LOCAL_SONG_PATH} &> /dev/null'])
+            subprocess.call(['mpv', f'{LOCAL_SONG_PATH} &> /dev/null'])
             # os.remove(LOCAL_SONG_PATH)
         else:
             os.remove(LOCAL_SONG_PATH)
@@ -51,3 +51,4 @@ if __name__ == "__main__":
     except Exception as e:
         print(e)
         
+
