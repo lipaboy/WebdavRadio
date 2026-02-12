@@ -1,10 +1,6 @@
 import time
 
 from pydub import AudioSegment
-from pydub import playback
-
-import pyaudio
-from pydub.utils import make_chunks
 
 import Signal
 
@@ -35,6 +31,9 @@ def strip_metadata_completely(audio_segment):
 #-------------------
 
 def play(seg : AudioSegment) -> float:
+    import pyaudio
+    from pydub.utils import make_chunks
+
     portAudio = pyaudio.PyAudio()
     # удалить все метаданные
     # seg = strip_metadata_completely(seg)  
