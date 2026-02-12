@@ -3,7 +3,6 @@ import os
 import sys
 import subprocess
 
-import Player
 import Signal
 
 import disk
@@ -45,6 +44,7 @@ if __name__ == "__main__":
             subprocess.run(f'mpv {LOCAL_SONG_PATH} &> /dev/null', stdout=FNULL, shell=True)
             # os.remove(LOCAL_SONG_PATH)
         else:
+            import Player
             os.remove(LOCAL_SONG_PATH)
             Player.play(song_audio_segment)
     except Exception as e:
