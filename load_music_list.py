@@ -1,6 +1,7 @@
 import disk
+import sys
 
-client = disk.openClientSession()
+client = disk.openClientSession(through_proxy=True)
 
 def dir_list(f, path: str):
     items = client.list(path)
@@ -16,7 +17,7 @@ def dir_list(f, path: str):
 if __name__ == "__main__":
     start='Music'
     music_list = list()
-    with open('db.txt', 'w', encoding="utf-8") as f:
+    with open(sys.path[0] + '/db/song_list2.txt', 'w', encoding="utf-8") as f:
         dir_list(f, start)
 
     # client.download_sync(remote_path="/Music/1.mp3", local_path="./music/1.mp3")
