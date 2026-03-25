@@ -42,14 +42,11 @@ if __name__ == "__main__":
 
         if not through_proxy:
             FNULL = open(os.devnull, 'w')
-            # subprocess.run(f'mpv {LOCAL_SONG_PATH} &> /dev/null', stdout=FNULL, shell=True)
             subprocess.call(['mpv', f'{LOCAL_SONG_PATH}'], stdout=FNULL)
-            # os.remove(LOCAL_SONG_PATH)
+            os.remove(LOCAL_SONG_PATH)
         else:
             os.remove(LOCAL_SONG_PATH)
             Player.play(song_audio_segment)
     except Exception as e:
         print(e)
         
-
-
